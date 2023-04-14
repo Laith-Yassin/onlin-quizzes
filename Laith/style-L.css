@@ -1,0 +1,25 @@
+.Lcontainer {
+    margin: auto;
+    background-color: aqua;
+    width: 100%;
+    height: 900px;
+}
+
+/* build CSS for cards contain the quizzes */
+.Lcards{
+    margin: auto;
+    background-color: rgb(241,250,254);
+    display: grid;
+    /* height: 6fr; */
+    height: 500px;
+    width: 90%;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 90%;
+}
+
+.Lcard{
+    width: 80%;
+    height: 80%;
+    background: red;
+    margin: auto;
+}
