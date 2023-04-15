@@ -13,6 +13,7 @@ let countdownElement = document.querySelector(".countdown");
 let currentIndex = 0;
 let rightAnswers = 0;
 let countdownInterval;
+let get_answers = [];
 
 function getQuestions() {
   let myRequest = new XMLHttpRequest();
@@ -57,12 +58,12 @@ function getQuestions() {
         countdown(60, qCount);
 
         // Show Results
-        showResults(theRightAnswer, qCount);
+        showResults(qCount);
 
-        
+        Printscore(theRightAnswer, qCount);
       };
     }
-  }; 
+  };
 
   myRequest.open("GET", "exam_data.json", true);
   myRequest.send();
@@ -153,6 +154,41 @@ function checkAnswer(rAnswer, count) {
   for (let i = 0; i < answers.length; i++) {
     if (answers[i].checked) {
       theChoosenAnswer = answers[i].dataset.answer;
+
+      console.log(theChoosenAnswer);
+
+
+      // for (let i = 0; i < answers.length; i++) {
+      let answer = { r_ans: rAnswer, u_ans: theChoosenAnswer };
+      get_answers.push(answer);
+      let store = window.localStorage.setItem("answer", JSON.stringify(get_answers));
+      // }
+
+
+    }
+  }
+
+  if (rAnswer === theChoosenAnswer) {
+    rightAnswers++;
+  }
+
+}
+
+function Printscore(rAnswer, count) {
+  let answers = document.getElementsByName("question");
+
+  let theChoosenAnswer;
+
+  for (let i = 0; i < answers.length; i++) {
+    if (answers[i].checked) {
+      theChoosenAnswer = answers[i].dataset.answer;
+
+      // if(currentIndex === count){
+      //console.log(theChoosenAnswer);
+      // let score = document.querySelector(".score");
+      // score.textContent = theChoosenAnswer;
+      // }
+
     }
   }
 
@@ -172,7 +208,7 @@ function handleBullets() {
   });
 }
 
-function showResults(rAnswer, count) {
+function showResults(count) {
   let theResults;
   if (currentIndex === count) {
     quizArea.remove();
@@ -184,68 +220,99 @@ function showResults(rAnswer, count) {
       theResults = `<h2 class="good">Good</h2> ${rightAnswers} From ${count} <div>  keep going  </div>`;
       resultsContainer.innerHTML = theResults;
       resultsContainer.style.padding = "10px";
-      resultsContainer.style.backgroundColor = "green";
+      resultsContainer.style.backgroundColor = "MediumSeaGreen";
       resultsContainer.style.color = "white";
-      resultsContainer.style.opacity = "0.7";
+      // resultsContainer.style.opacity = "0.7";
       resultsContainer.style.marginLeft = "25%";
       resultsContainer.style.fontWeight = "600";
       resultsContainer.style.width = "50%";
       resultsContainer.style.textAlign = "center";
-     
+      resultsContainer.style.borderRadius = "10px";
+
     } else if (rightAnswers === count) {
       theResults = `<h2 class="perfect">Perfect </h2> ${rightAnswers} From ${count} <div> stay in top </div>`;
-      
+
       resultsContainer.innerHTML = theResults;
       resultsContainer.style.padding = "10px";
-      resultsContainer.style.backgroundColor = "green";
+      resultsContainer.style.backgroundColor = "MediumSeaGreen";
       resultsContainer.style.color = "white";
-      resultsContainer.style.opacity = "0.7";
+      // resultsContainer.style.opacity = "0.7";
       resultsContainer.style.marginLeft = "25%";
       resultsContainer.style.fontWeight = "600";
       resultsContainer.style.width = "50%";
       resultsContainer.style.textAlign = "center";
       resultsContainer.style.ra = "center";
-    } else { 
+      resultsContainer.style.borderRadius = "10px";
+    } else {
       theResults = `<h2 class="bad">Bad</h2> ${rightAnswers} From ${count} <h3> never stop trying </h3>`;
-      // resultsContainer.innerHTML = theResults;
-      // resultsContainer.style.padding = "10px";
-      // resultsContainer.style.backgroundColor = "red";
-      // resultsContainer.style.color = "black";
-      // resultsContainer.style.opacity = "0.7";
-      // resultsContainer.style.marginLeft = "25%";
-      // resultsContainer.style.fontWeight = "600";
-      // resultsContainer.style.width = "50%";
-      // resultsContainer.style.textAlign = "center";
-      // resultsContainer.style.borderRadius = "10px";
-      theResults = document.createElement("h2");
-      theResults.innerHTML = `Bad, ${rightAnswers} out of ${count} <h3> never stop trying </h3>`;
-      theResults.classList.add("bad");
-      theResults.style.backgroundColor = "red";
-      theResults.style.color = "black";
-      theResults.style.width = "50%";
-      theResults.style.opacity = "0.7";
-      theResults.style.marginLeft = "25%";
-      theResults.style.fontWeight = "600";
-      theResults.style.width = "50%";
-      theResults.style.textAlign = "center";
-      theResults.style.borderRadius = "10px";
-      theResults.style.padding = "10px";
+      resultsContainer.innerHTML = theResults;
+      resultsContainer.style.padding = "10px";
+      resultsContainer.style.backgroundColor = "red";
+      resultsContainer.style.color = "black";
+      resultsContainer.style.opacity = "0.7";
+      resultsContainer.style.marginLeft = "25%";
+      resultsContainer.style.fontWeight = "600";
+      resultsContainer.style.width = "50%";
+      resultsContainer.style.textAlign = "center";
+      resultsContainer.style.borderRadius = "10px";
 
-      
+
+
     }
 
-    document.body.appendChild(theResults);
+    let get_storage = window.localStorage.getItem("answer");
+    let obj_answer = JSON.parse(get_storage);
+    if (obj_answer && obj_answer.length > 0) {
+      for (let i = 0; i < obj_answer.length; i++) {
+        let correct_answer = document.querySelector(`.correct_answer_${i + 1}`);
+        let u_answer = document.querySelector(`.u_answer_${i + 1}`);
+        let Q = document.querySelector(`.Q_${i + 1}`);
 
-    // resultsContainer.innerHTML = theResults;
-    // resultsContainer.style.padding = "10px";
-    // resultsContainer.style.backgroundColor = "red";
-    // resultsContainer.style.marginTop = "10px";
+        Q.textContent = `Q${i + 1}:`;
+        Q.style.fontWeight = "bold";
+        Q.style.color = "black";
+        Q.style.marginTop = "1px solid black";
+
+        correct_answer.textContent = `The correct answer is: ${obj_answer[i].r_ans}`;
+        correct_answer.style.fontSize = "20px";
+        u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
+        u_answer.style.fontSize = "20px";
+        u_answer.style.borderBottom = "1px solid black";
 
 
-    
-    
+        u_answer.style.marginTop = "1%";
+        correct_answer.style.marginTop = "1%";
+
+        let img = document.getElementById(`u_right_img_${i+1}`);
+
+        if (obj_answer[i].r_ans === obj_answer[i].u_ans) {
+          console.log("you got it!");
+          
+          // Change the image source
+          img.src = "img/accept.png";
+          // Change the alt text
+          img.alt = "you answer is right";
+          // Change the image size
+          img.width = "20";
+          img.height = "20";
+
+
+        } else {
+          img.src = "img/cross.png";
+
+          // Change the alt text
+          img.alt = "you answer is wrong";
+
+           img.width = "20";
+          img.height = "20";
+        }
+      }
+    } else {
+      console.log("Error: Unable to retrieve answer from localStorage");
+    }
+
   }
-  
+
 }
 
 function countdown(duration, count) {

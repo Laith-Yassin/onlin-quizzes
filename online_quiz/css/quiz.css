@@ -1,10 +1,10 @@
 
- * {
+* {
     box-sizing: border-box;
 }
 body {
     /* font-family: Tahoma, Arial; */
-    font-family: cursive;
+    font-family: sans-serif;
     background-color: #e4dacf;
     color: #777;
 }
