@@ -277,7 +277,7 @@ function showResults(count) {
         Q.style.textAlign="center"
         Q.style.marginTop="30px"
 
-        correct_answer.textContent = `Q${i + 1}: The correct answer is: ${obj_answer[i].r_ans} Your answer is: ${obj_answer[i].u_ans} u_right_img_${i+1} `; 
+        // correct_answer.textContent = `Q${i + 1}: The correct answer is: ${obj_answer[i].r_ans} Your answer is: ${obj_answer[i].u_ans} u_right_img_${i+1} `; 
         correct_answer.style.fontSize = "20px";
         // correct_answer.style.fontWeight = "bold";
         correct_answer.style.textAlign="lerf"
@@ -291,6 +291,9 @@ function showResults(count) {
         
 
         // cross
+
+        correct_answer.textContent = `Q${i + 1}: The correct answer is: ${obj_answer[i].r_ans} Your answer is: ${obj_answer[i].u_ans}  `; 
+
 
         u_answer.style.marginTop = "1%";
         correct_answer.style.marginTop = "1%";
