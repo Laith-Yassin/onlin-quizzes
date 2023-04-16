@@ -1,0 +1,119 @@
+@import url(https://fonts.bunny.net/css?family=darker-grotesque);
+
+:root {
+    --line-border-color: #a53860;
+    --disabled-line-border: #d1d2d4;
+    --button-active-color: #830a48;
+    --text-color: #868991;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    overflow: hidden;
+}
+
+body {
+    align-items: center;
+    background-color: #eaeaea;
+    display: flex;
+    font-family: "darker grotesque", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    max-width: 100vw;
+    position: relative;
+    width: 35rem;
+}
+
+.progress-container::before {
+    background-color: var(--disabled-line-border);
+    content: "";
+    height: 0.4rem;
+    left: 0;
+    position: absolute;
+    top: 58%;
+    transform: translateY(-50%);
+    width: 100%;
+    z-index: -1;
+}
+
+.progress {
+    background-color: var(--line-border-color);
+    height: 0.4rem;
+    left: 0;
+    position: absolute;
+    top: 58%;
+    transform: translateY(-50%);
+    transition: 0.4s ease;
+    width: 0%;
+    z-index: -1;
+}
+
+.circle {
+    align-items: center;
+    background-color: #fff;
+    border: 3px solid var(--disabled-line-border);
+    border-radius: 50%;
+    color: var(--text-color);
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    transition: 0.4s ease;
+    width: 3rem;
+}
+
+.circle.active {
+    border-color: var(--line-border-color);
+}
+
+.btn:disabled {
+    background-color: var(--disabled-line-border);
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--text-color);
+    cursor: not-allowed;
+    font-size: 1.8rem;
+    margin: 0 0.5rem;
+    padding: 1rem 2rem;
+}
+
+.btn {
+    background-color: var(--line-border-color);
+    border-radius: 0.5rem;
+    border: 0.6vw double #ecb6dd6e;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.4vw;
+    margin: 0 0.5rem;
+    padding: 0.6vw 2.5vw;
+    transition: background-color 0.5s, transform 0.5s;margin-top: 1vw;
+}
+
+.btn:active {
+    transform: scale(0.9);
+    background-color: var(--disabled-line-border);
+    color: #911647;
+    border-color: #911647;
+}
+
+.btn:focus {
+    outline: none;
+}

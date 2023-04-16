@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <section style="position: absolute;top :2vw;">
+        <div class="container">
+            <div class="progress-container">
+                <div class="progress" id="progress"></div>
+                <div class="circle active">1</div>
+                <div class="circle">2</div>
+                <div class="circle">3</div>
+                <div class="circle">4</div>
+                <div class="circle">5</div>
+                <div class="circle">6</div>
+                <div class="circle">7</div>
+            </div>
+    </section>
+    <section style="position: absolute;top :10vw;text-align: center;">
+        <h2>HTML Quiz</h2>
+        <div class="question-1" id="q1">
+            <h4 style="text-decoration: underline;">Question No.1:</h4>
+            <p style="font-size: 2.2vw;text-align: center;line-height: 5vw;margin-left: 1.5vw;">What does HTML stand for?</p>
+            <div class="choices" style="line-height: 7vw;">
+                <button class="card-1" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -6vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . A .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Hyper Text Markup Language</span>
+                </button>
+                <button class="card-2" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -20vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . B .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Hot Mail</span>
+                </button>
+                <button class="card-3" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -14vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . C .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Visual Rendering</span>
+                </button>
+                <button class="card-4" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -20vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . D .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Website</span>
+                </button>
+            </div>
+        </div>
+        <div class="question-2" id="q2" style="display: none;">
+            <h4 style="text-decoration: underline;">Question No.2:</h4>
+            <p style="font-size: 2.2vw;text-align: center;line-height: 5vw;margin-left: 1.5vw;">How many tags are in a regular element?</p>
+            <div class="choices" style="line-height: 7vw;">
+                <button class="card-1" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -18vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . A .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">2 Elements</span>
+                </button>
+                <button class="card-2" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -18vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . B .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">3 Elements</span>
+                </button>
+                <button class="card-3" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -18vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . C .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">6 Elements</span>
+                </button>
+                <button class="card-4" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -18vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . D .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">1 Elements</span>
+                </button>
+            </div>
+        </div>
+        <div class="question-3" id="q3" style="display: none;">
+            <h4 style="text-decoration: underline;">Question No.3:</h4>
+            <p style="font-size: 2.2vw;text-align: center;line-height: 5vw;margin-left: 1.5vw;">What is the difference between an opening tag and a closing tag?</p>
+            <div class="choices" style="line-height: 7vw;">
+                <button class="card-1" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -8vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . A .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Opening tag has a / in front</span>
+                </button>
+                <button class="card-2" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -9vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . B .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Closing tag has a / in front</span>
+                </button>
+                <button class="card-3" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -11vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . C .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">There is no difference</span>
+                </button>
+                <button class="card-4" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -15vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . D .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">All of the above</span>
+                </button>
+            </div>
+        </div>
+        <div class="question-4" id="q4" style="display: none;">
+            <h4 style="text-decoration: underline;">Question No.4:</h4>
+            <p style="font-size: 2.2vw;text-align: center;line-height: 5vw;margin-left: 1.5vw;">< br  / > What type of tag is this?</p>
+            <div class="choices" style="line-height: 7vw;">
+                <button class="card-1" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -17vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . A .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Breaking tag</span>
+                </button>
+                <button class="card-2" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -16vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . B .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">A broken one</span>
+                </button>
+                <button class="card-3" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -15vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . C .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">An opening tag</span>
+                </button>
+                <button class="card-4" style="border-radius: 90px 90px 90px 90px;background-color: rgba(209, 197, 203, 0.997);color: white;width: 27vw;text-align: left;margin-bottom: 2vw;height: 4vw;border: 0.1vw solid #830a48;top: 2vw;justify-content: center;display: flex;margin-left: 5vw;">
+                    <span style="border-radius: 100px 100px 100px 100px;background-color: #830a48;color: #ffffff;font-size: 1vw;border: 0.6vw double #ecb6dd6e;margin-left: -22vw;padding: 0.4vw 0.1vw;margin-top: 0.4vw;"> . D .</span>
+                    <span style="font-size: 1.5vw;align-self: center;position: relative;bottom: 0.3vw;margin-left: 0.5vw;">Footer</span>
+                </button>
+            </div>
+        </div>
+        <button class="btn" id="next" onclick="myFunction()">Next Question</button>
+    </section>
+<script src="quiz.js">
+
+</script>
+</body>
+</html>
