@@ -359,7 +359,19 @@ height: 100vh;
   width: 100%;z-index: 2;font-size: 1.5vw;
 }
 
+button {
+  border: none;
+  background-color: #fff;
+}
 
+#if_dont_log {
+  text-align: center;
+  border: 3px solid red;
+  width: 20%;
+  color: red;
+  margin-left: 40%;
+  margin-bottom: 5%;
+}
 
 
 
