@@ -1,21 +1,22 @@
-let username = document.getElementById("username");
+
+let Submit = document.getElementById('sub');
+let users = [];
+Submit.addEventListener('click', function (event) {
+    event.preventDefault();
+   
+    let username = document.getElementById("username");
 let email = document.getElementById('email');
 let password = document.getElementById('password');
 let password2 = document.getElementById('password2');
 let accept = document.getElementById('accept');
-let Submit = document.getElementById('sub');
 let reg_emil = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let reg_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+// password conditions for reg_pass
 // Contains at least one lowercase letter
 // Contains at least one uppercase letter
 // Contains at least one numeric digit
 // Is at least 8 characters long
 // Can only contain alphanumeric characters
-let counter = 0;
-let users = [];
-
-Submit.addEventListener('click', function () {
-    // e.preventDefault();
 
     let usernameValue = username.value.trim();
     let emailValue = email.value.trim();
@@ -72,7 +73,7 @@ Submit.addEventListener('click', function () {
     }
 
     // Validation for password confirmation
-    if (!password2Value.match(passwordValue)) {
+    if (password2Value !== passwordValue) {
         let small_err = document.querySelector(".small_err");
         small_err.textContent = "Password not match!!";
         small_err.style.color = "red";
@@ -92,29 +93,34 @@ Submit.addEventListener('click', function () {
         small_err.textContent = "";
     }
 
-    
-
     if (emailValue !== "" &&
         usernameValue.length > 4 &&
         emailValue !== "" &&
         emailValue.match(reg_emil) &&
         passwordValue !== "" &&
         passwordValue.match(reg_pass) &&
-        password2Value.match(passwordValue) &&
+        password2Value === passwordValue &&
         accept.checked
     ) {
-        counter++;
-        let user = { id: counter, user_mail: email.value, user_pass: password.value, user_name: username.value };
-        users.push(user);
-
-
-        window.localStorage.setItem("user_data", JSON.stringify(users));
-
-        return true;
+        saveUserData();
 
     }
 
 });
 
 
-// local
+// save User Data in local Storage
+function saveUserData() {
+    
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let counter = users.length + 1;
+
+    let user = { id: counter, user_mail: email.value, user_pass: password.value, user_name: username.value };
+
+    users.push(user);
+    window.localStorage.setItem("users", JSON.stringify(users));
+    window.location.href = "login.html";
+}
+
+
+

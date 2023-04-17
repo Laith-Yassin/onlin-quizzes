@@ -3,7 +3,7 @@ body {
 background-size: 500% 500%;
   background-repeat: no-repeat;
 animation: gradient 15s ease infinite;
-height: 100vh;
+
 }
 * {
   font-family: sans-serif !important;
@@ -25,7 +25,7 @@ height: 100vh;
   flex-direction: column;
   margin: auto;
   width: 100%;
-  height: 800px;
+ 
 
 }
 /* Lnavbar */
@@ -54,18 +54,11 @@ height: 100vh;
   margin: 30px;
   width: 80%;
 }
-/* .Lwelcome-img {
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  z-index: 0;
-  } */
+
 .Lwelcome-gradiant {
   margin: 50px;
 }
-/* build CSS for cards contain the quizzes */
+
 .Lcards{
   margin: auto;
   display: grid;
@@ -73,14 +66,11 @@ height: 100vh;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 90%;
 
+
 }
 
-.Lcard{
-  width: 80%;
-  height: 80%;
-  background: red;
-  margin: auto;
-}
+
+
 .Lorange {
   background-color: rgb(253, 164, 47);
 }
@@ -276,79 +266,16 @@ height: 100vh;
       transform: translateX(50%);
   }
 
- #log_text{
-  text-align: right;
-  width: 95%;
-  color: #073d84;
- }
-
-  
 
 
-  /* footer */
-  /* footer {
-      background-color: #202020;
-      color: #fff;
-      padding: 40px 0
-    }
-    
-    footer a:hover {
-      background-color: #202020;
-      color: #fff;
-      text-decoration: none;
-    }
-    
-    footer img {
-      width: 40px;
-    }
-    
-    footer a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    
-      color: #202020;
-      font-size: 18px;
-      transition: all 0.3s ease-in-out;
-    }
-    
-    .footer1 {
-      max-width: 960px;
-      margin: 0 auto
-    }
-    
-    .footertext {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 30px;
-      
+  #log_text_btn{
+margin-bottom: 10px;
   }
-  
-  footer ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-  }
-  
-  footer li {
-      margin-right: 20px
-  }     */
+
 
 
   /*footer*/
-  #sticky-footer {position: relative; bottom: 1px;width: 100%;
+  #sticky-footer {position: fixed; bottom: 1px;width: 100%;
   background: #b0ceef;
   background: linear-gradient(to right, #3b5270, #c3ce7b);
   
@@ -372,12 +299,13 @@ height: 100vh;
 }
 
 
-@media only screen and (min-width:850px) {
-#con-div{
-  margin-top: 200px;
+button {
+  border: none;
+  background-color: #fff;
 }
 
-}
+
+
 
 
 

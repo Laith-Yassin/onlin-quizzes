@@ -10,11 +10,14 @@
 }
 /*  */
 
+#log_text_btn{
+    border: none;
+}
+
 /*footer*/
-#sticky-footer {position: relative; bottom: 1px;width: 100%;
+#sticky-footer {position: fixed; bottom: 1px;width: 100%;
     background: #b0ceef;
     background: linear-gradient(to right, #3b5270, #c4ebf1);
-    margin-top: 50px;
 }
 #sticky-footer footer {
     background-color: rgba(255, 255, 255, 0.2);
@@ -33,6 +36,7 @@
     font-family: sans-serif;
     background-color: #c4ebf1;
     color: #777;
+    
 }
 
 .accept-cross{
@@ -124,12 +128,14 @@
     display: flex;
 }
 .quiz-app .bullets .spans span {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color: #DDD;
     margin-right: 5px;
-    /* border-radius: 50%; */
-    margin: 20px;
+    border-radius: 50%;
+    text-align: center;
+    padding: 2px;
+    margin: 10px;
 }
 .quiz-app .bullets .spans span.on {
     background-color: #c4ebf1;
@@ -149,13 +155,20 @@
 /* results */
 
 /* Media Query #1 */
-
+/* 
 @media only screen and (min-width:414px) {
     #sticky-footer{
       margin-top: 350px;
     }
     
-    }
+    } */
+
+    @media only screen and (min-width:850px) {
+        #con-div{
+          margin-top: 200px;
+        }
+        
+        }
 
 @media only screen and (max-width: 681px) {
     .quiz-app {

@@ -8,8 +8,21 @@ let submitButton = document.querySelector(".submit-button");
 let resultsContainer = document.querySelector(".results");
 let countdownElement = document.querySelector(".countdown");
 
-// exam_data.js
 
+// exam_data.js css.html
+
+let currentSession = window.sessionStorage.getItem("users_log");
+let currentSessionObj = JSON.parse(currentSession);
+  let flag =true;
+   if (currentSessionObj !== null) {
+      window.location.href="qiuz-css.html";
+      flag=false;
+   } else {
+    window.location.href="login.html";
+    flag=true;
+   } 
+
+  
 // Set Options
 let currentIndex = 0;
 let rightAnswers = 0;
@@ -74,6 +87,7 @@ getQuestions();
 
 function createBullets(num) {
   countSpan.innerHTML = num;
+  let count=1;
 
   // Create Spans
   for (let i = 0; i < num; i++) {
@@ -87,6 +101,8 @@ function createBullets(num) {
 
     // Append Bullets To Main Bullet Container
     bulletsSpanContainer.appendChild(theBullet);
+    theBullet.textContent=count;
+    count++;
   }
 }
 
@@ -230,6 +246,97 @@ function showResults(count) {
       resultsContainer.style.textAlign = "center";
       resultsContainer.style.borderRadius = "10px";
 
+      // create a button element
+const myButton = document.createElement("button");
+
+// set the button text
+myButton.innerText = "Show Answer";
+myButton.style.marginLeft="45%";
+myButton.style.backgroundColor="#77bfe4"
+myButton.style.padding="30px";
+myButton.style.border="none";
+myButton.style.color="white";
+// myButton.style.width="50px";
+myButton.style.borderRadius="15px"
+
+
+
+// add an event listener to the button
+myButton.addEventListener("click", () => {
+  console.log("Button clicked!");
+  // myButton.style.display="none"
+  myButton.style.padding="16px";
+  let get_storage = window.localStorage.getItem("answer");
+  let obj_answer = JSON.parse(get_storage);
+
+  if (obj_answer && obj_answer.length > 0) {
+    for (let i = 0; i < obj_answer.length; i++) {
+      let correct_answer = document.querySelector(`.correct_answer_${i + 1}`);
+      let u_answer = document.querySelector(`.u_answer_${i + 1}`);
+      let Q = document.querySelector(`.Q_${i + 1}`);
+      
+
+      Q.textContent = `Q${i + 1}:`;
+      Q.style.fontWeight = "bold";
+      Q.style.color = "black";
+      Q.style.marginTop = "1px solid black";
+      Q.style.textAlign="left"
+      Q.style.marginTop="30px"
+      Q.style.paddingTop="20px"
+      Q.style.borderTop="1px solid black"
+      Q.style.marginLeft="15px"
+
+
+      correct_answer.textContent = ` The correct answer is: ${obj_answer[i].r_ans}  `; 
+      correct_answer.style.fontSize = "20px";
+      correct_answer.style.fontWeight = "bold";
+      correct_answer.style.textAlign="lerf"
+      correct_answer.style.marginLeft="20px"
+      correct_answer.className="the-correct-answer"
+
+      u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
+      u_answer.style.fontSize = "20px";
+      // u_answer.style.borderBottom = "1px solid black";
+      u_answer.style.textAlign="center"
+      u_answer.style.marginLeft="20px"
+
+
+      u_answer.style.marginTop = "1%";
+      correct_answer.style.marginTop = "1%";
+
+      let img = document.getElementById(`u_right_img_${i+1}`);
+
+      if (obj_answer[i].r_ans === obj_answer[i].u_ans) {
+        console.log("you got it!");
+        
+        // Change the image source
+        img.src = "img/accept.png";
+        // Change the alt text
+        img.alt = "you answer is right";
+        // Change the image size
+        img.width = "20";
+        img.height = "20";
+
+
+      } else {
+        img.src = "img/cross.png";
+
+        // Change the alt text
+        img.alt = "you answer is wrong";
+
+         img.width = "20";
+        img.height = "20";
+      }
+    }
+  } else {
+    console.log("Error: Unable to retrieve answer from localStorage");
+  }
+});
+
+// add the button to the page
+document.body.appendChild(myButton);
+
+
     } else if (rightAnswers === count) {
       theResults = `<h2 class="perfect">Perfect </h2> ${rightAnswers} From ${count} <div> stay in top </div>`;
 
@@ -244,6 +351,98 @@ function showResults(count) {
       resultsContainer.style.textAlign = "center";
       resultsContainer.style.ra = "center";
       resultsContainer.style.borderRadius = "10px";
+
+      // create a button element
+const myButton = document.createElement("button");
+
+// set the button text
+myButton.innerText = "Show Answer";
+myButton.style.marginLeft="45%";
+myButton.style.backgroundColor="#77bfe4"
+myButton.style.padding="30px";
+myButton.style.border="none";
+myButton.style.color="white";
+// myButton.style.width="50px";
+myButton.style.borderRadius="15px"
+
+
+
+// add an event listener to the button
+myButton.addEventListener("click", () => {
+  console.log("Button clicked!");
+  // myButton.style.display="none"
+  myButton.style.padding="16px";
+  let get_storage = window.localStorage.getItem("answer");
+  let obj_answer = JSON.parse(get_storage);
+
+  if (obj_answer && obj_answer.length > 0) {
+    for (let i = 0; i < obj_answer.length; i++) {
+      let correct_answer = document.querySelector(`.correct_answer_${i + 1}`);
+      let u_answer = document.querySelector(`.u_answer_${i + 1}`);
+      let Q = document.querySelector(`.Q_${i + 1}`);
+      
+
+      Q.textContent = `Q${i + 1}:`;
+      Q.style.fontWeight = "bold";
+      Q.style.color = "black";
+      Q.style.marginTop = "1px solid black";
+      Q.style.textAlign="left"
+      Q.style.marginTop="30px"
+      Q.style.paddingTop="20px"
+      Q.style.borderTop="1px solid black"
+      Q.style.marginLeft="15px"
+
+
+      correct_answer.textContent = ` The correct answer is: ${obj_answer[i].r_ans}  `; 
+      correct_answer.style.fontSize = "20px";
+      correct_answer.style.fontWeight = "bold";
+      correct_answer.style.textAlign="lerf"
+      correct_answer.style.marginLeft="20px"
+      correct_answer.className="the-correct-answer"
+
+      u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
+      u_answer.style.fontSize = "20px";
+      // u_answer.style.borderBottom = "1px solid black";
+      u_answer.style.textAlign="center"
+      u_answer.style.marginLeft="20px"
+
+
+      u_answer.style.marginTop = "1%";
+      correct_answer.style.marginTop = "1%";
+
+      let img = document.getElementById(`u_right_img_${i+1}`);
+
+      if (obj_answer[i].r_ans === obj_answer[i].u_ans) {
+        console.log("you got it!");
+        
+        // Change the image source
+        img.src = "img/accept.png";
+        // Change the alt text
+        img.alt = "you answer is right";
+        // Change the image size
+        img.width = "20";
+        img.height = "20";
+
+
+      } else {
+        img.src = "img/cross.png";
+
+        // Change the alt text
+        img.alt = "you answer is wrong";
+
+         img.width = "20";
+        img.height = "20";
+      }
+    }
+  } else {
+    console.log("Error: Unable to retrieve answer from localStorage");
+  }
+});
+
+// add the button to the page
+document.body.appendChild(myButton);
+
+
     } else {
       theResults = `<h2 class="bad">Bad</h2> ${rightAnswers} From ${count} <h3> never stop trying </h3>`;
       resultsContainer.innerHTML = theResults;
@@ -257,78 +456,103 @@ function showResults(count) {
       resultsContainer.style.textAlign = "center";
       resultsContainer.style.borderRadius = "10px";
 
+// create a button element
+const myButton = document.createElement("button");
+
+// set the button text
+myButton.innerText = "Show Answer";
+myButton.style.marginLeft="45%";
+myButton.style.backgroundColor="#77bfe4"
+myButton.style.padding="30px";
+myButton.style.border="none";
+myButton.style.color="white";
+// myButton.style.width="50px";
+myButton.style.borderRadius="15px"
 
 
-    }
 
-    let get_storage = window.localStorage.getItem("answer");
-    let obj_answer = JSON.parse(get_storage);
-    if (obj_answer && obj_answer.length > 0) {
-      for (let i = 0; i < obj_answer.length; i++) {
-        let correct_answer = document.querySelector(`.correct_answer_${i + 1}`);
-        let u_answer = document.querySelector(`.u_answer_${i + 1}`);
-        let Q = document.querySelector(`.Q_${i + 1}`);
+// add an event listener to the button
+myButton.addEventListener("click", () => {
+  console.log("Button clicked!");
+  // myButton.style.display="none"
+  myButton.style.padding="16px";
+  let get_storage = window.localStorage.getItem("answer");
+  let obj_answer = JSON.parse(get_storage);
+
+  if (obj_answer && obj_answer.length > 0) {
+    for (let i = 0; i < obj_answer.length; i++) {
+      let correct_answer = document.querySelector(`.correct_answer_${i + 1}`);
+      let u_answer = document.querySelector(`.u_answer_${i + 1}`);
+      let Q = document.querySelector(`.Q_${i + 1}`);
+      
+
+      Q.textContent = `Q${i + 1}:`;
+      Q.style.fontWeight = "bold";
+      Q.style.color = "black";
+      Q.style.marginTop = "1px solid black";
+      Q.style.textAlign="left"
+      Q.style.marginTop="30px"
+      Q.style.paddingTop="20px"
+      Q.style.borderTop="1px solid black"
+      Q.style.marginLeft="15px"
+
+
+      correct_answer.textContent = ` The correct answer is: ${obj_answer[i].r_ans}  `; 
+      correct_answer.style.fontSize = "20px";
+      correct_answer.style.fontWeight = "bold";
+      correct_answer.style.textAlign="lerf"
+      correct_answer.style.marginLeft="20px"
+      correct_answer.className="the-correct-answer"
+
+      u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
+      u_answer.style.fontSize = "20px";
+      // u_answer.style.borderBottom = "1px solid black";
+      u_answer.style.textAlign="center"
+      u_answer.style.marginLeft="20px"
+
+
+      u_answer.style.marginTop = "1%";
+      correct_answer.style.marginTop = "1%";
+
+      let img = document.getElementById(`u_right_img_${i+1}`);
+
+      if (obj_answer[i].r_ans === obj_answer[i].u_ans) {
+        console.log("you got it!");
         
-
-        Q.textContent = `Q${i + 1}:`;
-        Q.style.fontWeight = "bold";
-        Q.style.color = "black";
-        Q.style.marginTop = "1px solid black";
-        Q.style.textAlign="left"
-        Q.style.marginTop="30px"
-        Q.style.paddingTop="20px"
-        Q.style.borderTop="1px solid black"
-        Q.style.marginLeft="15px"
+        // Change the image source
+        img.src = "img/accept.png";
+        // Change the alt text
+        img.alt = "you answer is right";
+        // Change the image size
+        img.width = "20";
+        img.height = "20";
 
 
-        correct_answer.textContent = ` The correct answer is: ${obj_answer[i].r_ans}  `; 
-        correct_answer.style.fontSize = "20px";
-        correct_answer.style.fontWeight = "bold";
-        correct_answer.style.textAlign="lerf"
-        correct_answer.style.marginLeft="20px"
-        correct_answer.className="the-correct-answer"
+      } else {
+        img.src = "img/cross.png";
 
-        u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
-        u_answer.style.fontSize = "20px";
-        // u_answer.style.borderBottom = "1px solid black";
-        u_answer.style.textAlign="center"
-        u_answer.style.marginLeft="20px"
+        // Change the alt text
+        img.alt = "you answer is wrong";
 
-
-        u_answer.style.marginTop = "1%";
-        correct_answer.style.marginTop = "1%";
-
-        let img = document.getElementById(`u_right_img_${i+1}`);
-
-        if (obj_answer[i].r_ans === obj_answer[i].u_ans) {
-          console.log("you got it!");
-          
-          // Change the image source
-          img.src = "img/accept.png";
-          // Change the alt text
-          img.alt = "you answer is right";
-          // Change the image size
-          img.width = "20";
-          img.height = "20";
-
-
-        } else {
-          img.src = "img/cross.png";
-
-          // Change the alt text
-          img.alt = "you answer is wrong";
-
-           img.width = "20";
-          img.height = "20";
-        }
+         img.width = "20";
+        img.height = "20";
       }
-    } else {
-      console.log("Error: Unable to retrieve answer from localStorage");
+    }
+  } else {
+    console.log("Error: Unable to retrieve answer from localStorage");
+  }
+});
+
+// add the button to the page
+document.body.appendChild(myButton);
+
+}
+
     }
 
   }
 
-}
+
 
 function countdown(duration, count) {
   if (currentIndex < count) {
@@ -350,4 +574,9 @@ function countdown(duration, count) {
   }
 }
 
-// results
+log_text.addEventListener("click", function () {
+  window.sessionStorage.clear();
+  window.open("index.html");
+  if_dont_log.textContent = "plz log in to get the Quizez";
+
+});
