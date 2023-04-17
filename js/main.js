@@ -9,9 +9,10 @@ let js_butn = document.getElementById("js_butn");
 html_butn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    let currentSessionObj = window.sessionStorage.getItem("users_log_1");
+    let currentSession = window.sessionStorage.getItem("users_log_1");
+    let currentSessionObj = JSON.parse(currentSession);
     
-     if(currentSessionObj === ""){
+     if(currentSessionObj === null){
         window.location.href = "sign-up.html";
      } else {
     
@@ -23,9 +24,10 @@ html_butn.addEventListener("click", function (e) {
 css_butn.addEventListener("click", function (e) {
     e.preventDefault();
 
-    let currentSessionObj = window.sessionStorage.getItem("users_log_1");
+    let currentSession = window.sessionStorage.getItem("users_log_1");
+    let currentSessionObj = JSON.parse(currentSession);
     
-     if(currentSessionObj === ""){
+     if(currentSessionObj === null){
         window.location.href = "sign-up.html";
      } else {
     
