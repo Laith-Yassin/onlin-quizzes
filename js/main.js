@@ -10,7 +10,8 @@ let hey_user = document.getElementById("hey_user");
 
 ////////////////////////////////////////////////////////////
 
-let currentSession = window.sessionStorage.getItem("users_log_1");
+// if user log in show his/her name
+let currentSession = window.sessionStorage.getItem("users_log");
 let currentSessionObj = JSON.parse(currentSession);
   
    if (currentSessionObj !== null) {
@@ -31,10 +32,12 @@ log_out_text_btn.addEventListener("click" , function(){
 
 ///////////////////////////////////////////////////////////////////////////////////
 
+// to have secuire expreince user cant NOT start exam without DO Log in
+
 html_butn.addEventListener("click", function (e) {
    e.preventDefault();
 
-   let currentSession = window.sessionStorage.getItem("users_log_1");
+   let currentSession = window.sessionStorage.getItem("users_log");
    let currentSessionObj = JSON.parse(currentSession);
 
 
@@ -53,7 +56,7 @@ html_butn.addEventListener("click", function (e) {
 css_butn.addEventListener("click", function (e) {
    e.preventDefault();
 
-   let currentSession = window.sessionStorage.getItem("users_log_1");
+   let currentSession = window.sessionStorage.getItem("users_log");
    let currentSessionObj = JSON.parse(currentSession);
 
    if (currentSessionObj === null) {
@@ -68,7 +71,7 @@ css_butn.addEventListener("click", function (e) {
 js_butn.addEventListener("click", function (e) {
    e.preventDefault();
 
-   let currentSession = window.sessionStorage.getItem("users_log_1");
+   let currentSession = window.sessionStorage.getItem("users_log");
    let currentSessionObj = JSON.parse(currentSession);
 
    if (currentSessionObj === null) {

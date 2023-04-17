@@ -70,7 +70,7 @@ function getQuestions() {
         // Show Results
         showResults(qCount);
 
-        Printscore(theRightAnswer, qCount);
+        
       };
     }
   };
@@ -184,29 +184,6 @@ function checkAnswer(rAnswer, count) {
 
 }
 
-function Printscore(rAnswer, count) {
-  let answers = document.getElementsByName("question");
-
-  let theChoosenAnswer;
-
-  for (let i = 0; i < answers.length; i++) {
-    if (answers[i].checked) {
-      theChoosenAnswer = answers[i].dataset.answer;
-
-      // if(currentIndex === count){
-      //console.log(theChoosenAnswer);
-      // let score = document.querySelector(".score");
-      // score.textContent = theChoosenAnswer;
-      // }
-
-    }
-  }
-
-  if (rAnswer === theChoosenAnswer) {
-    rightAnswers++;
-  }
-
-}
 
 function handleBullets() {
   let bulletsSpans = document.querySelectorAll(".bullets .spans span");

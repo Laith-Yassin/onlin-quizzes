@@ -1,10 +1,9 @@
 
 let Submit = document.getElementById('sub');
-
+let users = [];
 Submit.addEventListener('click', function (event) {
     event.preventDefault();
-    let counter = 0;
-    let users = [];
+   
     let username = document.getElementById("username");
 let email = document.getElementById('email');
 let password = document.getElementById('password');
@@ -12,7 +11,7 @@ let password2 = document.getElementById('password2');
 let accept = document.getElementById('accept');
 let reg_emil = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 let reg_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-// password conditions 
+// password conditions for reg_pass
 // Contains at least one lowercase letter
 // Contains at least one uppercase letter
 // Contains at least one numeric digit
@@ -103,42 +102,26 @@ let reg_pass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
         password2Value === passwordValue &&
         accept.checked
     ) {
-        // storge();
-        // let users = JSON.parse(localStorage.getItem('users'));
-
-        // if (!users) {
-        //     users = [];
-        // }
-        counter++;
-        let user = { id: counter, user_mail: email.value, user_pass: password.value, user_name: username.value };
-        users.push(user);
-        window.localStorage.setItem("user_data", JSON.stringify(users));
-        console.log("user added");
-        window.location.href = "index.html";
-        return;
+        saveUserData();
 
     }
 
 });
 
 
+// save User Data in local Storage
+function saveUserData() {
+    
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let counter = users.length + 1;
 
-// function saveUserData() {
-//     let users = JSON.parse(localStorage.getItem('users'));
+    let user = { id: counter, user_mail: email.value, user_pass: password.value, user_name: username.value };
 
-//     if (!users) {
-//         users = [];
-//     }
-//     counter++;
-//     let user = { id: counter, user_mail: email.value, user_pass: password.value, user_name: username.value };
-//     users.push(user);
-//     window.localStorage.setItem("user_data", JSON.stringify(users));
+    users.push(user);
+    window.localStorage.setItem("users", JSON.stringify(users));
+    window.location.href = "login.html";
+}
 
-// }
 
-// form.addEventListener('submit', function (event) {
-//     event.preventDefault();
-//     saveUserData();
-// });
 
 
