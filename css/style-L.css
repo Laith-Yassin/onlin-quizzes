@@ -5,6 +5,7 @@ background-size: 500% 500%;
 animation: gradient 15s ease infinite;
 height: 100vh;
 }
+
 * {
   font-family: sans-serif !important;
 }
@@ -282,70 +283,8 @@ height: 100vh;
   color: #073d84;
  }
 
-  
-
-
-  /* footer */
-  /* footer {
-      background-color: #202020;
-      color: #fff;
-      padding: 40px 0
-    }
     
-    footer a:hover {
-      background-color: #202020;
-      color: #fff;
-      text-decoration: none;
-    }
-    
-    footer img {
-      width: 40px;
-    }
-    
-    footer a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-    
-      color: #202020;
-      font-size: 18px;
-      transition: all 0.3s ease-in-out;
-    }
-    
-    .footer1 {
-      max-width: 960px;
-      margin: 0 auto
-    }
-    
-    .footertext {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 30px;
-      
-  }
-  
-  footer ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-  }
-  
-  footer li {
-      margin-right: 20px
-  }     */
-
+   
 
   /*footer*/
   #sticky-footer {position: relative; bottom: 1px;width: 100%;
@@ -363,16 +302,6 @@ button {
   border: none;
   background-color: #fff;
 }
-
-#if_dont_log {
-  text-align: center;
-  border: 3px solid red;
-  width: 20%;
-  color: red;
-  margin-left: 40%;
-  margin-bottom: 5%;
-}
-
 
 
 @media only screen and (max-width:850px) {

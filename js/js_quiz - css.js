@@ -16,6 +16,15 @@ let rightAnswers = 0;
 let countdownInterval;
 let get_answers = [];
 
+
+let currentSession = window.sessionStorage.getItem("users_log_1");
+let currentSessionObj = JSON.parse(currentSession);
+  let flag =true;
+   if (currentSessionObj !== null) {
+      window.open("qiuz-css.html");
+      flag=false;
+   }
+
 function getQuestions() {
   let myRequest = new XMLHttpRequest();
 

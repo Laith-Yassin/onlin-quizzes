@@ -16,6 +16,19 @@ let rightAnswers = 0;
 let countdownInterval;
 let get_answers = [];
 
+
+let currentSession = window.sessionStorage.getItem("users_log_1");
+let currentSessionObj = JSON.parse(currentSession);
+  let flag =true;
+   if (currentSessionObj !== null) {
+      window.open("qiuz.html");
+      flag=false;
+   }
+
+
+
+
+
 function getQuestions() {
   let myRequest = new XMLHttpRequest();
 
@@ -61,7 +74,7 @@ function getQuestions() {
         // Show Results
         showResults(qCount);
 
-        Printscore(theRightAnswer, qCount);
+        
       };
     }
   };
@@ -175,29 +188,6 @@ function checkAnswer(rAnswer, count) {
 
 }
 
-function Printscore(rAnswer, count) {
-  let answers = document.getElementsByName("question");
-
-  let theChoosenAnswer;
-
-  for (let i = 0; i < answers.length; i++) {
-    if (answers[i].checked) {
-      theChoosenAnswer = answers[i].dataset.answer;
-
-      // if(currentIndex === count){
-      //console.log(theChoosenAnswer);
-      // let score = document.querySelector(".score");
-      // score.textContent = theChoosenAnswer;
-      // }
-
-    }
-  }
-
-  if (rAnswer === theChoosenAnswer) {
-    rightAnswers++;
-  }
-
-}
 
 function handleBullets() {
   let bulletsSpans = document.querySelectorAll(".bullets .spans span");
@@ -268,36 +258,36 @@ function showResults(count) {
         let correct_answer = document.querySelector(`.correct_answer_${i + 1}`);
         let u_answer = document.querySelector(`.u_answer_${i + 1}`);
         let Q = document.querySelector(`.Q_${i + 1}`);
-        
+
 
         // Q.textContent = `Q${i + 1}:`;
         Q.style.fontWeight = "bold";
         Q.style.color = "black";
         Q.style.marginTop = "1px solid black";
-        Q.style.textAlign="center"
-        Q.style.marginTop="30px"
+        Q.style.textAlign = "center"
+        Q.style.marginTop = "30px"
 
-        correct_answer.textContent = `Q${i + 1}: The correct answer is: ${obj_answer[i].r_ans} Your answer is: ${obj_answer[i].u_ans} `; 
+        correct_answer.textContent = `Q${i + 1}: The correct answer is: ${obj_answer[i].r_ans} Your answer is: ${obj_answer[i].u_ans} `;
         correct_answer.style.fontSize = "20px";
         // correct_answer.style.fontWeight = "bold";
-        correct_answer.style.textAlign="lerf"
-        correct_answer.style.marginLeft="20px"
-        correct_answer.className="the-correct-answer"
+        correct_answer.style.textAlign = "lerf"
+        correct_answer.style.marginLeft = "20px"
+        correct_answer.className = "the-correct-answer"
 
         // u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
         u_answer.style.fontSize = "20px";
         u_answer.style.borderBottom = "1px solid black";
-        u_answer.style.textAlign="center"
+        u_answer.style.textAlign = "center"
 
 
         u_answer.style.marginTop = "1%";
         correct_answer.style.marginTop = "1%";
 
-        let img = document.getElementById(`u_right_img_${i+1}`);
+        let img = document.getElementById(`u_right_img_${i + 1}`);
 
         if (obj_answer[i].r_ans === obj_answer[i].u_ans) {
           console.log("you got it!");
-          
+
           // Change the image source
           img.src = "img/accept.png";
           // Change the alt text
@@ -313,7 +303,7 @@ function showResults(count) {
           // Change the alt text
           img.alt = "you answer is wrong";
 
-           img.width = "20";
+          img.width = "20";
           img.height = "20";
         }
       }
