@@ -270,24 +270,29 @@ function showResults(count) {
         let Q = document.querySelector(`.Q_${i + 1}`);
         
 
-        // Q.textContent = `Q${i + 1}:`;
+        Q.textContent = `Q${i + 1}:`;
         Q.style.fontWeight = "bold";
         Q.style.color = "black";
         Q.style.marginTop = "1px solid black";
-        Q.style.textAlign="center"
+        Q.style.textAlign="left"
         Q.style.marginTop="30px"
+        Q.style.paddingTop="20px"
+        Q.style.borderTop="1px solid black"
+        Q.style.marginLeft="15px"
 
-        correct_answer.textContent = `Q${i + 1}: The correct answer is: ${obj_answer[i].r_ans} Your answer is: ${obj_answer[i].u_ans}  `; 
+
+        correct_answer.textContent = ` The correct answer is: ${obj_answer[i].r_ans}  `; 
         correct_answer.style.fontSize = "20px";
-        // correct_answer.style.fontWeight = "bold";
+        correct_answer.style.fontWeight = "bold";
         correct_answer.style.textAlign="lerf"
         correct_answer.style.marginLeft="20px"
         correct_answer.className="the-correct-answer"
 
-        // u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
+        u_answer.textContent = `Your answer is: ${obj_answer[i].u_ans}`;
         u_answer.style.fontSize = "20px";
-        u_answer.style.borderBottom = "1px solid black";
+        // u_answer.style.borderBottom = "1px solid black";
         u_answer.style.textAlign="center"
+        u_answer.style.marginLeft="20px"
 
 
         u_answer.style.marginTop = "1%";
